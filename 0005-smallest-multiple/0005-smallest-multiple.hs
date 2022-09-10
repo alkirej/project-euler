@@ -8,7 +8,7 @@ main = do
     putStrLn "Working on euler problem #0005."
     putStrLn ""
 
-    print $ findSmallestDivisibleByAll [1..20]
+    print $ findSmallestDivisibleByAll [1..10]
 
 -- find the smallest int divisible by all values if fs.
 findSmallestDivisibleByAll :: [Int] -> Int
@@ -32,7 +32,7 @@ isDivisibleByAll ns x =
 
 -- are all members of xs in ys?
 includesAll :: Eq a => [a] -> [a] -> Bool
-includesAll xs ys = and $ map (`elem` xs) ys
+includesAll xs = all (`elem` xs)
 
 factor :: Int -> [Int]
 factor i = reverse $ findFactorsOf i 1 []
@@ -52,7 +52,7 @@ findFactorsOf n c found =
             findFactorsOf n (c+1) found
 
 isFactor :: Int -> Int -> Bool
-isFactor n f = (n `mod` f == 0)
+isFactor n f = n `mod` f == 0
 
 isPrime :: Int -> Bool
 isPrime p = null (factor p)
