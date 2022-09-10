@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/git/project-euler/0006-sum-square-diff
+cabal run -p euler-problem-n0006
+
