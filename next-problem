@@ -1,0 +1,42 @@
+#!/bin/bash
+
+make-problem-dir () {
+    DIR_NAME=${1}-${2}
+    mkdir -p ${DIR_NAME}
+}
+
+make-file-from-template () {
+    DIR_NAME=${1}-${2}
+    FILE_NAME=${DIR_NAME}
+    TEMPLATE_NAME=${3}
+    NEW_FILE_EXT=${4}
+
+    cat ${TEMPLATE_NAME} | sed -e "s/<PROBLEM NUMBER>/${1}/g" \
+                         | sed -e "s/<PROBLEM NAME>/${2}/g" \
+                         | sed -e "s/<PROBLEM DIR>/${DIR_NAME}/g" \
+                         > ${DIR_NAME}/${FILE_NAME}.${NEW_FILE_EXT}
+}
+
+prepare-go () {
+    DIR_NAME=${1}-${2}
+    FILE_NAME=${DIR_NAME}
+
+    mv ${DIR_NAME}/${FILE_NAME}.go ${DIR_NAME}/go
+    chmod 744 ${DIR_NAME}/go
+}
+
+
+if [ "${2}" == "" ]
+then
+    echo
+    echo "    Usage:  next-problem <PROBLEM NUMBER> <PROBLEM NAME>"
+fi
+
+cd ~/git/project-euler
+
+make-problem-dir ${1} ${2}
+make-file-from-template ${1} ${2} euler-cabal-template      cabal
+make-file-from-template ${1} ${2} starting-haskell-template hs
+make-file-from-template ${1} ${2} go-template               go
+prepare-go ${1} ${2}
+

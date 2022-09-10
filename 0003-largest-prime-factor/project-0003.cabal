@@ -1,0 +1,39 @@
+cabal-version:       >=1.10
+
+name:                  euler-problem-n0003
+version:               0.1.0.0
+synopsis:              Code to solve the Project Euler challenges
+-- description:
+-- bug-reports:
+license:               NONE
+-- license-file:       LICENSE
+author:                Jeff Alkire
+maintainer:            jeff@alkire.net
+-- copyright:
+-- category:
+build-type:            Simple
+extra-source-files:    CHANGELOG.md
+default-extensions:    
+
+executable current
+  main-is:             problem-0003.hs
+  other-modules:       
+
+  default-extensions:  NumericUnderscores,
+                       OverloadedStrings
+  build-depends:       base            >= 4.13    && < 5
+
+  hs-source-dirs:      /home/jeff/git/project-euler/0003-largest-prime-factor
+  default-language:    Haskell2010
+
+executable factor
+  main-is:             factor.hs
+  other-modules:
+
+  default-extensions:  NumericUnderscores,
+                       OverloadedStrings
+  build-depends:       base            >= 4.13    && < 5
+
+  hs-source-dirs:      /home/jeff/git/project-euler/0003-largest-prime-factor
+  default-language:    Haskell2010
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/git/project-euler/0003-largest-prime-factor
+cabal run -p factor $@
+
