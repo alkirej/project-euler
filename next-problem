@@ -5,6 +5,14 @@ make-problem-dir () {
     mkdir -p ${DIR_NAME}
 }
 
+copy-template-file () {
+    DIR_NAME=${1}-${2}
+    TEMPLATE_NAME=${3}
+    NEW_FILE_NAME=${4} 
+
+    cp ${TEMPLATE_NAME} ${DIR_NAME}/${NEW_FILE_NAME}
+}
+
 make-file-from-template () {
     DIR_NAME=${1}-${2}
     FILE_NAME=${DIR_NAME}
@@ -37,6 +45,9 @@ cd ~/git/project-euler
 make-problem-dir ${1} ${2}
 make-file-from-template ${1} ${2} euler-cabal-template      cabal
 make-file-from-template ${1} ${2} starting-haskell-template hs
+
 make-file-from-template ${1} ${2} go-template               go
 prepare-go ${1} ${2}
+
+copy-template-file ${1} ${2} gitignore-template .gitignore
 

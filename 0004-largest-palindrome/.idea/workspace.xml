@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e033759a-5ee2-4fad-abce-9cdcdb5247cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../0003-largest-prime-factor/factor.hs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../0003-largest-prime-factor/problem-0003.hs" afterDir="false" />
-    </list>
+    <list default="true" id="e033759a-5ee2-4fad-abce-9cdcdb5247cb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

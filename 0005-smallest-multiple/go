@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/git/project-euler/0005-smallest-multiple
+cabal run -p euler-problem-n0005
+
