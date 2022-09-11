@@ -1,0 +1,7 @@
+#!/bin/bash
+clear
+hlint .
+
+cd ~/git/project-euler/0009-special-pythagorean-triplet
+cabal run -p euler-problem-n0009 $@
+

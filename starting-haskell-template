@@ -1,4 +1,5 @@
 
+import qualified CmdLine                        as Cmd
 import qualified Factor                         as Ftor
 
 
