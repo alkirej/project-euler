@@ -34,5 +34,6 @@ isFactor n f = n `mod` f == 0
 -- IS PRIME?
 -- ********************************************************************
 isPrime :: Int -> Bool
+isPrime 1 = False
 isPrime p = 2 == length (factor p)
 
