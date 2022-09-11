@@ -1,29 +1,17 @@
 module CmdLine
     (   numFromCommandLine,
-        numericCommandLineArgument
+        numFromCommandLineArg,
+        textFromCommandLine
     )
 where
 
-import System.Environment                       as Env
+import qualified Data.Char                      as Ch
+import qualified Data.Text                      as Txt
+import qualified System.Environment             as Env
 
 verifyNumeric :: String -> Bool
 verifyNumeric []       = True
-verifyNumeric (ch:str) =
-        if ch >= '0' && ch <= '9' then
-            verifyNumeric str
-        else
-            False
-
-inRange :: Int -> Int -> Int -> Bool
--- n = number to check
--- l = lowest legal value
--- h = highest legal value
-inRange n l h =  l>=n && n>=h
-
-numFromCommandLine :: IO Int
-numFromCommandLine = do
-    args <- Env.getArgs
-    return $ numericCommandLineArgument args 1
+verifyNumeric (ch:str) = foldr ((&&) . Ch.isDigit) True str
 
 numericCommandLineArgument :: [String] -> Int -> Int
 numericCommandLineArgument args n
@@ -37,3 +25,22 @@ numericCommandLineArgument args n
                 read str :: Int
             else
                 error $ str ++ " is not a valid whole number."
+
+numFromCommandLine :: IO Int
+numFromCommandLine = do
+    args <- Env.getArgs
+    return $ numericCommandLineArgument args 1
+
+numFromCommandLineArg :: Int -> IO Int
+numFromCommandLineArg idx = do
+    args <- Env.getArgs
+    return $ numericCommandLineArgument args idx
+
+
+textFromCommandLine :: IO Txt.Text
+textFromCommandLine = do
+    args <- Env.getArgs
+    if null args then
+        error "    No command line arguments found."
+    else
+        return $ Txt.pack $ head args

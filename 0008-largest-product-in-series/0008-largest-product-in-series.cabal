@@ -1,8 +1,8 @@
 cabal-version:         >= 2.0 && <= 2.2
 
-name:                  euler-problem-n0007
+name:                  euler-problem-n0008
 version:               0.1.0.0
-synopsis:              Code to solve the Project Euler problem #0007. 
+synopsis:              Code to solve the Project Euler problem #0008. 
 -- description:        
 -- bug-reports:
 homepage:              https://github.com/alkirej/project-euler
@@ -14,15 +14,18 @@ maintainer:            jeff@alkire.net
 build-type:            Simple
 -- extra-source-files:   
 
-executable problem-0007
-  main-is:             0007-10-001st-prime.hs
-  other-modules:       CmdLine, Factor, ListFns
+executable problem-0008
+  main-is:             0008-largest-product-in-series.hs
+  other-modules:       CmdLine,
+                       Factor,
+                       ListFns,
+                       MathFns
 
   default-extensions:  NumericUnderscores,
                        OverloadedStrings
   build-depends:       base            >= 4.13    && < 5,
-                       text            >= 1.2.4   && < 1.3
+                       text            >= 1.2.4   && < 2
 
-  hs-source-dirs:      /home/jeff/git/project-euler/0007-10-001st-prime
+  hs-source-dirs:      /home/jeff/git/project-euler/0008-largest-product-in-series
                        /home/jeff/git/project-euler/0000-library
   default-language:    Haskell2010

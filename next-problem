@@ -13,6 +13,14 @@ copy-template-file () {
     cp ${TEMPLATE_NAME} ${DIR_NAME}/${NEW_FILE_NAME}
 }
 
+copy-template-dir () {
+    DIR_NAME=${1}-${2}
+    TEMPLATE_NAME=${3}
+    NEW_FILE_NAME=${4} 
+
+    cp -r ${TEMPLATE_NAME} ${DIR_NAME}/${NEW_FILE_NAME}
+}
+
 make-file-from-template () {
     DIR_NAME=${1}-${2}
     FILE_NAME=${DIR_NAME}
@@ -50,4 +58,5 @@ make-file-from-template ${1} ${2} go-template               go
 prepare-go ${1} ${2}
 
 copy-template-file ${1} ${2} gitignore-template .gitignore
+copy-template-dir  ${1} ${2} idea-dir-template  .idea
 

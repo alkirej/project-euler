@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/git/project-euler/0008-largest-product-in-series
+cabal run -p problem-0008 $@
+

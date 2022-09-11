@@ -18,11 +18,14 @@ executable problem-<PROBLEM NUMBER>
   main-is:             <PROBLEM NUMBER>-<PROBLEM NAME>.hs
   other-modules:       CmdLine,
                        Factor,
-                       LstFns
+                       ListFns,
+                       MathFns
+
 
   default-extensions:  NumericUnderscores,
                        OverloadedStrings
-  build-depends:       base            >= 4.13    && < 5
+  build-depends:       base            >= 4.13    && < 5,
+                       text            >= 1.2.4   && < 1.3
 
   hs-source-dirs:      /home/jeff/git/project-euler/<PROBLEM DIR>
                        /home/jeff/git/project-euler/0000-library
