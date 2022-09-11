@@ -4,13 +4,15 @@ import qualified Factor                         as Ftor
 
 main :: IO ()
 main = do
-    count <- Cmd.numFromCommandLine
     putStrLn ""
     putStrLn ""
     putStrLn "Working on euler problem #0007."
     putStrLn ""
 
-    print $ primeList count
+    count <- Cmd.numFromCommandLine
+
+    putStr $ "    The " ++ (show count) ++ "th prime number is "
+    putStrLn $ show $ last $ primeList count
 
 primeList :: Int -> [Int]
 primeList count = reverse $ primeList' count 2 []
