@@ -1,8 +1,8 @@
 cabal-version:         >= 2.0 && <= 2.2
 
-name:                  euler-problem-n<PROBLEM NUMBER>
+name:                  euler-problem-n0011
 version:               0.1.0.0
-synopsis:              Code to solve the Project Euler problem #<PROBLEM NUMBER>. 
+synopsis:              Code to solve the Project Euler problem #0011. 
 -- description:        
 -- bug-reports:
 homepage:              https://github.com/alkirej/project-euler
@@ -14,8 +14,8 @@ maintainer:            jeff@alkire.net
 build-type:            Simple
 -- extra-source-files:   
 
-executable problem-<PROBLEM NUMBER>
-  main-is:             <PROBLEM NUMBER>-<PROBLEM NAME>.hs
+executable problem-0011
+  main-is:             0011-largest-product-in-grid.hs
   other-modules:       CmdLine,
                        Factor,
                        ListFns,
@@ -25,11 +25,11 @@ executable problem-<PROBLEM NUMBER>
 
   default-extensions:  NumericUnderscores,
                        OverloadedStrings
-  build-depends:       base            >= 4.13    && < 5.0,
+  build-depends:       base            >= 4.13    && < 5  ,
                        matrix          >= 0.3.6.1 && < 0.4,
                        split           >= 0.2.3.5 && < 0.3,
                        text            >= 1.2.4   && < 1.3
 
-  hs-source-dirs:      /home/jeff/git/project-euler/<PROBLEM DIR>
+  hs-source-dirs:      /home/jeff/git/project-euler/0011-largest-product-in-grid
                        /home/jeff/git/project-euler/0000-library
   default-language:    Haskell2010
