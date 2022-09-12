@@ -1,7 +1,8 @@
 module MathFns
     (   collatz,
         collatzSeq,
-        inRange
+        inRange,
+        isNumericPalindrone
     )
 where
 
@@ -12,6 +13,12 @@ inRange :: Int -> Int -> Int -> Bool
 -- h = highest legal value
 inRange n l h =  l>=n && n>=h
 
+-- Is this # a palindrone?
+isNumericPalindrone :: Int -> Bool
+isNumericPalindrone n =
+    let f = show n
+        b = reverse f
+    in f == b
 
 -- given a #, calculate the next value in the Collatz sequence
 -- Collatz seq traverses as follows for any value of n > 0:

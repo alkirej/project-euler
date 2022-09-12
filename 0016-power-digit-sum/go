@@ -1,0 +1,9 @@
+#!/bin/bash
+
+clear
+hlint .
+hlint ~/git/project-euler/0000-library
+
+cd ~/git/project-euler/0016-power-digit-sum
+cabal run -p euler-problem-n0016 $@
+

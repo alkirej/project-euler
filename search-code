@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ "" == "${1}" ]
+then
+    echo
+    echo "search-code <Text to find>"
+    echo
+    echo "    Example:  search-code map"
+else
+    cd ~/git/euler-project
+    find . -name dist-* -prune -or -name '*.hs' -exec grep -i "$1" {} \;
+fi

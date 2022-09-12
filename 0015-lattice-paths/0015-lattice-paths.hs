@@ -11,7 +11,7 @@ main = do
     putStrLn "Working on euler problem #0015."
     putStrLn ""
 
-    sz <- Cmd.numFromCommandLine  -- Size of the square lattice.
+    sz <- Cm1d.numFromCommandLine  -- Size of the square lattice.
 
     let lns = setupLattice
         (wt,lns') = getWeightAt (sz,sz) lns
