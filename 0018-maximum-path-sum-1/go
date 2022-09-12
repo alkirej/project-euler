@@ -1,0 +1,9 @@
+#!/bin/bash
+
+clear
+hlint .
+hlint ~/git/project-euler/0000-library
+
+cd ~/git/project-euler/0018-maximum-path-sum-1
+cabal run -p euler-problem-n0018 $@
+
