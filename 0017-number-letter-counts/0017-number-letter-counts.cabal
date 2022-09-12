@@ -1,8 +1,8 @@
 cabal-version:         >= 2.0 && <= 2.2
 
-name:                  euler-problem-n<PROBLEM NUMBER>
+name:                  euler-problem-n0017
 version:               0.1.0.0
-synopsis:              Code to solve the Project Euler problem #<PROBLEM NUMBER>. 
+synopsis:              Code to solve the Project Euler problem #0017. 
 -- description:        
 -- bug-reports:
 homepage:              https://github.com/alkirej/project-euler
@@ -14,8 +14,8 @@ maintainer:            jeff@alkire.net
 build-type:            Simple
 -- extra-source-files:   
 
-executable problem-<PROBLEM NUMBER>
-  main-is:             <PROBLEM NUMBER>-<PROBLEM NAME>.hs
+executable problem-0017
+  main-is:             0017-number-letter-counts.hs
   other-modules:       CmdLine,
                        ConversionFns,
                        Factor,
@@ -33,6 +33,6 @@ executable problem-<PROBLEM NUMBER>
                        split           >= 0.2.3.5 && < 0.3,
                        text            >= 1.2.4   && < 1.3
 
-  hs-source-dirs:      /home/jeff/git/project-euler/<PROBLEM DIR>
+  hs-source-dirs:      /home/jeff/git/project-euler/0017-number-letter-counts
                        /home/jeff/git/project-euler/0000-library
   default-language:    Haskell2010
