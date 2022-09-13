@@ -1,0 +1,9 @@
+#!/bin/bash
+
+clear
+hlint .
+hlint ~/git/project-euler/0000-library
+
+cd ~/git/project-euler/0025-1000-digit-fibonacci-number
+cabal run -p euler-problem-n0025 $@
+

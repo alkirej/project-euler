@@ -1,8 +1,10 @@
 module MathFns
     (   collatz,
         collatzSeq,
+        fibonacciSequenceUpTo,
         inRange,
-        isNumericPalindrone
+        isNumericPalindrone,
+        nextFib
     )
 where
 
@@ -40,3 +42,27 @@ collatzSeq' 1 xs = reverse xs
 collatzSeq' n xs =
     let nxt = collatz n
     in  collatzSeq' nxt (nxt:xs)
+
+
+-- ******************************************************************** --
+-- FIBONACCI SEQUENCE FNS
+-- ******************************************************************** --
+fibStart :: [Integer]
+fibStart = [2,1,1]
+
+fibonacciSequenceUpTo :: Integer -> [Integer]
+fibonacciSequenceUpTo = fibsUnder fibStart
+
+fibsUnder :: [Integer] -> Integer -> [Integer]
+fibsUnder fibs mx =
+    let next = nextFibFromList fibs
+    in  if next > mx then
+            fibs
+        else
+            fibsUnder (nextFibFromList fibs:fibs) mx
+
+nextFibFromList :: [Integer] -> Integer
+nextFibFromList (a:b:rest) = a + b
+
+nextFib :: Integer -> Integer -> Integer
+nextFib a b = a + b
