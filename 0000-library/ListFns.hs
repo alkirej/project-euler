@@ -3,7 +3,8 @@ module ListFns
         integerToDigitList,
         numericStringToDigitList,
         numericTextToDigitList,
-        readNumbersToLists
+        readNumbersToLists,
+        swapTuples
     )
 where
 
@@ -38,7 +39,7 @@ stringsToNumbers = map (\str -> read str :: Int)
 
 numericStringToDigitList :: String -> [Int]
 numericStringToDigitList =
-    foldl (\lst ch -> Ch.digitToInt ch:lst) [] 
+    foldl (\lst ch -> Ch.digitToInt ch:lst) []
 
 numericTextToDigitList :: Txt.Text -> [Int]
 numericTextToDigitList t = numericStringToDigitList (Txt.unpack t)
@@ -47,3 +48,9 @@ integerToDigitList :: Integer -> [Int]
 integerToDigitList bigNum =
         let str = show bigNum
         in  numericStringToDigitList str
+
+-- ---------------------------------------------------------
+-- Swap first and second elements of each 2-tuple in a list
+-- ---------------------------------------------------------
+swapTuples :: [(a,b)] -> [(b,a)]
+swapTuples xs = [(y,x) | (x,y) <- xs ]

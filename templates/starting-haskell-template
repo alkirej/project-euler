@@ -1,11 +1,12 @@
 
 import qualified Data.Char                      as Ch
 import qualified Data.Text                      as Txt
-import qualified Data.List                      as Lstf
+import qualified Data.List                      as Lst
 import qualified Data.List.Split                as Spl
 
 import qualified CmdLine                        as Cmd
 import qualified Factor                         as Ftor
+import qualified ListFns                        as Lstf
 
 
 main :: IO ()

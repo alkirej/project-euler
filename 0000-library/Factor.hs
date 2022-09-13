@@ -1,8 +1,11 @@
 module Factor
-    (   factor,
+    (   countFactors,
+        factor,
         isFactor,
         isPrime,
-        primeFactors
+        primeFactors,
+        properDivisors,
+        sumOfProperDivisors
     )
 where
 
@@ -16,11 +19,11 @@ import qualified Combinatorics                  as Comb
 -- ********************************************************************
 countFactors :: Int -> Int
 countFactors n =
-    let fs = allFactors n
+    let fs = factor n
     in  length fs
 
-allFactors :: Int -> [Int]
-allFactors n =
+factor :: Int -> [Int]
+factor n =
     let pfs = primeFactors n
         ls  = Comb.partitions pfs
     in  Lst.nub $ concatMap products ls
@@ -54,6 +57,7 @@ findPrimeFactorsOf n c
 -- ********************************************************************
 -- FACTOR
 -- ********************************************************************
+{-
 factor :: Int -> [Int]
 factor i = reverse $ findFactorsOf i 1 []
 
@@ -71,7 +75,7 @@ findFactorsOf n c found =
             in  reverse $ Lst.sort $ findFactorsOf n (c+1) (c:d:found)
         else
             findFactorsOf n (c+1) found
-
+ -}
 -- ********************************************************************
 -- IS f A FACTOR OF n?
 -- ********************************************************************
@@ -85,4 +89,11 @@ isPrime :: Int -> Bool
 isPrime 1 = False
 isPrime p = 2 == length (factor p)
 
+-- ********************************************************************
+-- PROPER DIVISORS
+-- ********************************************************************
+properDivisors :: Int -> [Int]
+properDivisors n = Lst.delete n $ factor n
 
+sumOfProperDivisors :: Int -> Int
+sumOfProperDivisors = sum . properDivisors
