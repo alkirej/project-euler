@@ -1,7 +1,10 @@
 module Factor
     (   countFactors,
         factor,
+        isAbundantNumber,
+        isDeficientNumber,
         isFactor,
+        isPerfectNumber,
         isPrime,
         primeFactors,
         properDivisors,
@@ -97,3 +100,15 @@ properDivisors n = Lst.delete n $ factor n
 
 sumOfProperDivisors :: Int -> Int
 sumOfProperDivisors = sum . properDivisors
+
+-- Perfect number means the sum of the proper divisors = the number itself
+isPerfectNumber :: Int -> Bool
+isPerfectNumber n = n == sumOfProperDivisors n
+
+-- A deficient number means the sum of the proper divisors < the number itself
+isDeficientNumber :: Int -> Bool
+isDeficientNumber n = sumOfProperDivisors n < n
+
+-- A deficient number means the sum of the proper divisors > the number itself
+isAbundantNumber :: Int -> Bool
+isAbundantNumber n = sumOfProperDivisors n > n
