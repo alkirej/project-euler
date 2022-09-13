@@ -5,6 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/<PROBLEM DIR>
-# cabal run -p euler-problem-n<PROBLEM NUMBER> $@
-cabal run $@
+cabal run -p euler-problem-n<PROBLEM NUMBER> $@
 

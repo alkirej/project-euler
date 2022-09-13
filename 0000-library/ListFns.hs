@@ -1,12 +1,16 @@
 module ListFns
     (   containsAll,
+        integerToDigitList,
+        numericStringToDigitList,
+        numericTextToDigitList,
         readNumbersToLists
     )
 where
 
+import qualified Data.Char                      as Ch
 import qualified Data.List                      as Lst
-import qualified Data.Text                      as Txt
 import qualified Data.List.Split                as Spl
+import qualified Data.Text                      as Txt
 
 -- ********************************************************************
 -- CONTAINS ALL
@@ -31,3 +35,15 @@ listOfStrsToListOfNumbers = map stringsToNumbers
 
 stringsToNumbers :: [String] -> [Int]
 stringsToNumbers = map (\str -> read str :: Int)
+
+numericStringToDigitList :: String -> [Int]
+numericStringToDigitList =
+    foldl (\lst ch -> Ch.digitToInt ch:lst) [] 
+
+numericTextToDigitList :: Txt.Text -> [Int]
+numericTextToDigitList t = numericStringToDigitList (Txt.unpack t)
+
+integerToDigitList :: Integer -> [Int]
+integerToDigitList bigNum =
+        let str = show bigNum
+        in  numericStringToDigitList str

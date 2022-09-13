@@ -21,8 +21,7 @@ executable problem-<PROBLEM NUMBER>
                        DateFns,
                        Factor,
                        ListFns,
-                       MathFns,
-                       MatrixFns
+                       MathFns
 
 
   default-extensions:  NumericUnderscores,
