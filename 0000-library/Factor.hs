@@ -1,7 +1,9 @@
 module Factor
---    (   factor,
---        isPrime
---    )
+    (   factor,
+        isFactor,
+        isPrime,
+        primeFactors
+    )
 where
 
 import qualified Data.List                      as Lst
