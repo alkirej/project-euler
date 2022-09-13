@@ -1,8 +1,11 @@
 module ConversionFns
-    (   numberToWord
+    (   numberToWord,
+        scoreName
     )
 where
 
+import qualified Data.Char                      as Ch
+import qualified Data.Maybe                     as Mb
 import qualified Data.Text                      as Txt
 
 numberToWord :: Int -> Txt.Text
@@ -83,3 +86,18 @@ tensDigit n = error "Invalid value (" `Txt.append` Txt.pack (show n)
 
 hundredsDigit :: Int -> Txt.Text
 hundredsDigit n = onesDigit n `Txt.append` " hundred"
+
+scoreName :: Txt.Text -> Int
+scoreName nm = scoreName' (Txt.toLower nm) 0
+
+scoreName' :: Txt.Text -> Int -> Int
+scoreName' "" sm = sm
+scoreName' name sm =
+    let (ch,nm) = Mb.fromJust $ Txt.uncons name
+    in  scoreName' nm (sm + scoreChar ch)
+
+scoreCharZero :: Int
+scoreCharZero = fromEnum 'a' - 1
+
+scoreChar :: Ch.Char -> Int
+scoreChar ch = fromEnum ch - scoreCharZero
