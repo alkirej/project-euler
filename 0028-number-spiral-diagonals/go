@@ -1,0 +1,9 @@
+#!/bin/bash
+
+clear
+hlint .
+hlint ~/git/project-euler/0000-library
+
+cd ~/git/project-euler/0028-number-spiral-diagonals
+cabal run -p euler-problem-n0028 $@
+
