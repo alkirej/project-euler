@@ -1,8 +1,8 @@
 cabal-version:         >= 2.0 && <= 2.2
 
-name:                  euler-problem-n<PROBLEM NUMBER>
+name:                  euler-problem-n0026
 version:               0.1.0.0
-synopsis:              Code to solve the Project Euler problem #<PROBLEM NUMBER>. 
+synopsis:              Code to solve the Project Euler problem #0026. 
 -- description:        
 -- bug-reports:
 homepage:              https://github.com/alkirej/project-euler
@@ -14,8 +14,8 @@ maintainer:            jeff@alkire.net
 build-type:            Simple
 -- extra-source-files:   
 
-executable problem-<PROBLEM NUMBER>
-  main-is:             <PROBLEM NUMBER>-<PROBLEM NAME>.hs
+executable problem-0026
+  main-is:             0026-reciprocal-cycles.hs
   other-modules:       CmdLine,
                        ConversionFns,
                        DateFns,
@@ -27,7 +27,7 @@ executable problem-<PROBLEM NUMBER>
 
   default-extensions:  NumericUnderscores,
                        OverloadedStrings
-  build-depends:       base            >= 4.13    && < 5.0,
+  build-depends:       base            >= 4.13    && < 5,
                        combinatorial   >= 0.1.0.1 && < 0.2,
                        containers      >= 0.6.2.1 && < 0.7,
                        Decimal         >= 0.5.2   && < 0.6,
@@ -35,6 +35,6 @@ executable problem-<PROBLEM NUMBER>
                        split           >= 0.2.3.5 && < 0.3,
                        text            >= 1.2.4   && < 1.3
 
-  hs-source-dirs:      /home/jeff/git/project-euler/<PROBLEM DIR>
+  hs-source-dirs:      /home/jeff/git/project-euler/0026-reciprocal-cycles
                        /home/jeff/git/project-euler/0000-library
   default-language:    Haskell2010

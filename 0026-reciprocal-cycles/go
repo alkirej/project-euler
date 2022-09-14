@@ -1,0 +1,9 @@
+#!/bin/bash
+
+clear
+hlint .
+hlint ~/git/project-euler/0000-library
+
+cd ~/git/project-euler/0026-reciprocal-cycles
+cabal run -p euler-problem-n0026 $@
+

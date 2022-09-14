@@ -1,4 +1,5 @@
 module ListFns
+{-
     (   binarySearch,
         binSrchContains,
         containsAll,
@@ -8,6 +9,7 @@ module ListFns
         readNumbersToLists,
         swapTuples
     )
+ -}
 where
 
 import qualified Data.Char                      as Ch
@@ -78,3 +80,62 @@ binarySearch' idx list val
 
 binSrchContains :: (Ord a) => [a] -> a -> Bool
 binSrchContains list val = Mb.isJust $ binarySearch list val
+
+-- ******************************************************************** --
+-- LOOK FOR REPEATED CONSECUTIVE ELEMENTS IN THE LIST.
+-- ******************************************************************** --
+-- lst = the complete list to search
+-- seg = the segment to find
+-- loc = current index. (To start at front of list, call with 0).
+-- return Nothing if the segment is not found and an Just indx
+--          with the index of seg in lst if found.
+matches :: Eq a => [a] -> [a] -> Int -> Maybe Int
+matches [] _ _ = Nothing
+matches lst@(_:rest) seg loc =
+    let segLn = length seg
+        lstSeg = take segLn lst
+    in  if lstSeg == seg then
+            Just loc
+        else
+            matches rest seg (loc+1)
+
+matchFront :: Eq a => [a] -> [a] -> Bool
+matchFront lst seg = Just 0 == matches lst seg 0
+
+repeatAtFrontCount :: Eq a => [a] -> [a] -> Int
+repeatAtFrontCount = repeatAtFrontCount' 0
+
+repeatAtFrontCount' :: Eq a => Int -> [a] -> [a] -> Int
+repeatAtFrontCount' ct [] _ = ct
+repeatAtFrontCount' ct _ [] = ct
+repeatAtFrontCount' ct lst seg =
+    if matchFront lst seg then
+        repeatAtFrontCount' (ct+1) rest seg
+    else
+        ct
+    where (frt,rest) = splitAt (length seg) lst
+
+-- Does this repeated segment cover at least 1/2 of the list?
+isRepeatedSegment :: Eq a => [a] -> [a] -> Bool
+isRepeatedSegment lst seg =
+    let ct = repeatAtFrontCount lst seg
+        ln = ct * (length seg)
+        half = length lst `div` 2
+    in  ln > half
+
+lookForRepeatingSegmentInFront :: Eq a => [a] -> [a]
+lookForRepeatingSegmentInFront lst =
+        reverse $ lookForRepeatingSegmentInFront' 1 (length lst `div` 3) lst []
+
+lookForRepeatingSegmentInFront' :: Eq a => Int -> Int -> [a] -> [a] -> [a]
+lookForRepeatingSegmentInFront' crt mx lst best
+    | crt > mx  = best
+    | otherwise = do
+            let seg = take crt lst
+
+            if isRepeatedSegment seg best then
+                    best
+            else if isRepeatedSegment lst seg then
+                    lookForRepeatingSegmentInFront' (crt+1) mx lst seg
+            else
+                    lookForRepeatingSegmentInFront' (crt+1) mx lst best

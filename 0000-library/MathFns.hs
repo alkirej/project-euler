@@ -4,9 +4,12 @@ module MathFns
         fibonacciSequenceUpTo,
         inRange,
         isNumericPalindrone,
-        nextFib
+        nextFib,
+        decimalLongDivision
     )
 where
+
+import qualified Data.Char                      as Ch
 
 -- Is the value within a range.
 inRange :: Int -> Int -> Int -> Bool
@@ -66,3 +69,19 @@ nextFibFromList (a:b:rest) = a + b
 
 nextFib :: Integer -> Integer -> Integer
 nextFib a b = a + b
+
+decimalLongDivision :: Int -> Int -> Int -> String
+decimalLongDivision plcs num den = reverse $ longDivision "" plcs num den
+
+longDivision :: String -> Int -> Int -> Int -> String
+longDivision sofar 0 _ _ = sofar
+longDivision sofar plcs num den =
+        let (val,rmd) = intDiv num den
+            newStr = if null sofar then
+                        "." ++ show val
+                    else
+                        (Ch.intToDigit val:sofar)
+        in longDivision newStr (plcs-1) (10*rmd) den
+
+intDiv :: Int -> Int -> (Int,Int)
+intDiv x y = (x `div` y, x `mod` y)
