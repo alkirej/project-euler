@@ -80,7 +80,7 @@ longDivision sofar plcs num den =
             newStr = if null sofar then
                         "." ++ show val
                     else
-                        (Ch.intToDigit val:sofar)
+                        Ch.intToDigit val:sofar
         in longDivision newStr (plcs-1) (10*rmd) den
 
 intDiv :: Int -> Int -> (Int,Int)

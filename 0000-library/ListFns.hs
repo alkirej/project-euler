@@ -1,5 +1,4 @@
 module ListFns
-{-
     (   binarySearch,
         binSrchContains,
         containsAll,
@@ -9,7 +8,6 @@ module ListFns
         readNumbersToLists,
         swapTuples
     )
- -}
 where
 
 import qualified Data.Char                      as Ch
@@ -119,7 +117,7 @@ repeatAtFrontCount' ct lst seg =
 isRepeatedSegment :: Eq a => [a] -> [a] -> Bool
 isRepeatedSegment lst seg =
     let ct = repeatAtFrontCount lst seg
-        ln = ct * (length seg)
+        ln = ct * length seg
         half = length lst `div` 2
     in  ln > half
 

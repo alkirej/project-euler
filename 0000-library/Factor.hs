@@ -27,7 +27,7 @@ countFactors n =
 
 factor :: Int -> [Int]
 factor n =
-    let pfs = primeFactors n
+    let pfs = primeFactors (abs n)
         ls  = Comb.partitions pfs
     in  Lst.nub $ concatMap products ls
 
