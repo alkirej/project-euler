@@ -1,5 +1,0 @@
-#!/bin/bash
-
-cd ~/git/project-euler/0000-library
-cabal build -p euler-problem-library
-
