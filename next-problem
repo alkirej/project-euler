@@ -23,25 +23,29 @@ copy-template-dir () {
 
 make-file-from-template () {
     DIR_NAME=${1}-${2}
-    FILE_NAME=${DIR_NAME}
-    TEMPLATE_NAME=${3}
-    NEW_FILE_EXT=${4}
+    LANG=${3}
+    EXT=${4}
+    TEMPLATE_NAME=template.${EXT}
+    FILE_NAME=${DIR_NAME}.${EXT}
 
-    cat templates/${TEMPLATE_NAME} \
+    cat templates/${LANG}/${TEMPLATE_NAME} \
                          | sed -e "s/<PROBLEM NUMBER>/${1}/g" \
                          | sed -e "s/<PROBLEM NAME>/${2}/g" \
                          | sed -e "s/<PROBLEM DIR>/${DIR_NAME}/g" \
-                         > ${DIR_NAME}/${FILE_NAME}.${NEW_FILE_EXT}
+                         > ${DIR_NAME}/${FILE_NAME}
 }
 
-prepare-go () {
+make-executable () {
+    DIR_NAME=${1}-${2}
+    FILE_NAME=${3}
+    chmod 744 ${DIR_NAME}/${FILE_NAME}
+}
+
+rename-go () {
     DIR_NAME=${1}-${2}
     FILE_NAME=${DIR_NAME}
-
-    mv ${DIR_NAME}/${FILE_NAME}.go ${DIR_NAME}/go
-    chmod 744 ${DIR_NAME}/go
+    mv ${DIR_NAME}/${DIR_NAME}.bash ${DIR_NAME}/go
 }
-
 
 if [ "${2}" == "" ] || [ "${3}" == "" ]
 then
@@ -50,29 +54,28 @@ then
     exit 1
 fi
 
-if [ "${3}" == "Python" ]
-then
-    echo "Python template not implemented yet."
-    exit 0
-fi
-
 if [ "${3}" == "Haskell" ]
 then
     cd ~/git/project-euler
 
     make-problem-dir ${1} ${2}
-    make-file-from-template ${1} ${2} euler-cabal-template      cabal
-    make-file-from-template ${1} ${2} starting-haskell-template hs
+    make-file-from-template ${1} ${2} ${3} cabal
+    make-file-from-template ${1} ${2} ${3} hs
 
-    make-file-from-template ${1} ${2} go-template               go
-    prepare-go ${1} ${2}
-
-    copy-template-file ${1} ${2} gitignore-template .gitignore
-    #copy-template-dir  ${1} ${2} templates/idea-dir-template  .idea
+    make-file-from-template ${1} ${2} ${3} bash
+    rename-go ${1} ${2}
+    make-executable ${1} ${2} go
 
 elif [ "${3}" == "Python" ]
 then
-    echo "implement python here."
+    cd ~/git/project-euler
+
+    make-problem-dir ${1} ${2}
+    make-file-from-template ${1} ${2} ${3} py
+
+    make-file-from-template ${1} ${2} ${3} bash
+    rename-go ${1} ${2}
+    make-executable ${1} ${2} go
 
 else
     echo "${3} is an unknown language template.  Please try again."
