@@ -17,4 +17,30 @@ main = do
     putStrLn "Working on euler problem #0035."
     putStrLn ""
 
+    stopAt <- Cmd.numFromCommandLine
 
+    let answers = filter check [1..stopAt]
+
+    print answers
+    print $ length answers
+
+check :: Int -> Bool
+check n =
+    let digCt = length $ show n
+    in  not ('0' `elem` (show n)) && check' digCt n
+
+        --if '0' `elem` (show n) then
+        --    False
+        --else
+        --    check' digCt n
+
+check' :: Int -> Int -> Bool
+check' 0 n = True
+check' digCnt n =
+    if not $ Ftor.isPrime n then
+        False
+    else
+        check' (digCnt-1) nextNbr
+    where crtStr  = show n
+          nextStr = Lstf.wrap crtStr
+          nextNbr = read nextStr :: Int

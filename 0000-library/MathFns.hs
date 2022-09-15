@@ -1,11 +1,12 @@
 module MathFns
     (   collatz,
         collatzSeq,
+        decimalLongDivision,
         fibonacciSequenceUpTo,
         inRange,
-        isNumericPalindrone,
+        isNumericPalindrome,
         nextFib,
-        decimalLongDivision
+        toBase
     )
 where
 
@@ -19,8 +20,8 @@ inRange :: Int -> Int -> Int -> Bool
 inRange n l h =  l>=n && n>=h
 
 -- Is this # a palindrone?
-isNumericPalindrone :: Int -> Bool
-isNumericPalindrone n =
+isNumericPalindrome :: Int -> Bool
+isNumericPalindrome n =
     let f = show n
         b = reverse f
     in f == b
@@ -85,3 +86,17 @@ longDivision sofar plcs num den =
 
 intDiv :: Int -> Int -> (Int,Int)
 intDiv x y = (x `div` y, x `mod` y)
+
+toBase :: Int -> Int -> String
+toBase base decimal
+    | base <  2 = error $ "Invalid base (" ++ show base ++ ")"
+    | base > 10 = error "Bases above 10 not implemented yet."
+    | otherwise = toBase' "" base decimal
+
+toBase' :: String -> Int -> Int -> String
+toBase' sofar _ 0 = sofar
+toBase' sofar base decimal =
+    let rem = decimal `mod` base
+        nxt = decimal `div` base
+        res = show rem ++ sofar
+    in  toBase' res base nxt

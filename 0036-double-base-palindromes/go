@@ -1,0 +1,9 @@
+#!/bin/bash
+
+clear
+hlint .
+hlint ~/git/project-euler/0000-library
+
+cd ~/git/project-euler/0036-double-base-palindromes
+cabal run -p euler-problem-n0036 $@
+

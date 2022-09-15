@@ -6,7 +6,8 @@ module ListFns
         numericStringToDigitList,
         numericTextToDigitList,
         readNumbersToLists,
-        swapTuples
+        swapTuples,
+        wrap
     )
 where
 
@@ -137,3 +138,13 @@ lookForRepeatingSegmentInFront' crt mx lst best
                     lookForRepeatingSegmentInFront' (crt+1) mx lst seg
             else
                     lookForRepeatingSegmentInFront' (crt+1) mx lst best
+
+-- ---------------------------------------------------------
+-- Wrap the first element of a list to the end
+--   Example:  "hello"
+--   becomes:  "elloh"
+-- ---------------------------------------------------------
+wrap :: [a] -> [a]
+wrap []   = []
+wrap (x:xs) = xs ++ [x]
+
