@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd ~/git/project-euler/0010-sum-of-primes
-cabal run -p euler-problem-n0010 $@
+cabal run euler-problem-n0010 30
 

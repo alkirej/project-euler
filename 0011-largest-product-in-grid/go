@@ -5,5 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/0011-largest-product-in-grid
-cabal run -p euler-problem-n0011 $@
+cabal run euler-problem-n0011 $@
 

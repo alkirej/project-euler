@@ -2,5 +2,5 @@
 
 clear
 cd ~/git/project-euler/0007-10-001st-prime
-cabal run -p euler-problem-n0007 $@
+cabal run euler-problem-n0007 $@
 

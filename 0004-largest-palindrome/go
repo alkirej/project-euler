@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd ~/git/project-euler/0004-largest-palindrome
-cabal run -p euler-problem-n0004
+cabal run euler-problem-n0004
 

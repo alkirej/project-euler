@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd ~/git/project-euler/0008-largest-product-in-series
-cabal run -p problem-0008 $@
+cabal run problem-0008 series.txt 10
 
