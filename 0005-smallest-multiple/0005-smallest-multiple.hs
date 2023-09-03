@@ -1,5 +1,5 @@
 
-import Factor
+-- import Factor
 import qualified Data.List                      as Lst
 
 main :: IO ()

@@ -24,8 +24,11 @@ executable problem-0008
   default-extensions:  NumericUnderscores,
                        OverloadedStrings
   build-depends:       base            >= 4.13    && < 5,
-                       text            >= 1.2.4   && < 2
+                       combinatorial   >= 0.1.1   && < 1,
+                       containers      >= 0.6.2.1 && < 1,
+                       text            >= 1.2.4   && < 2,
+                       utility-ht      >= 0.0.17  && < 1
 
   hs-source-dirs:      /home/jeff/git/project-euler/0008-largest-product-in-series
-                       /home/jeff/git/project-euler/0000-library
+                       /home/jeff/git/project-euler/0000-library/Haskell
   default-language:    Haskell2010
