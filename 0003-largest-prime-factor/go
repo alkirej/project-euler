@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd ~/git/project-euler/0003-largest-prime-factor
-cabal run -p euler-problem-n0003
+cabal run current
 
