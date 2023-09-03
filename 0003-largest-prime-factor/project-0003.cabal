@@ -1,4 +1,4 @@
-cabal-version:       >=1.10
+cabal-version:         3.6
 
 name:                  euler-problem-n0003
 version:               0.1.0.0
@@ -23,17 +23,6 @@ executable current
                        OverloadedStrings
   build-depends:       base            >= 4.13    && < 5
 
-  hs-source-dirs:      /home/jeff/git/project-euler/0003-largest-prime-factor
-  default-language:    Haskell2010
-
-executable factor
-  main-is:             factor.hs
-  other-modules:
-
-  default-extensions:  NumericUnderscores,
-                       OverloadedStrings
-  build-depends:       base            >= 4.13    && < 5
-
-  hs-source-dirs:      /home/jeff/git/project-euler/0003-largest-prime-factor
+  hs-source-dirs:      .
   default-language:    Haskell2010
 

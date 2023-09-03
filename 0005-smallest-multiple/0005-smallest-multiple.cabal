@@ -1,4 +1,4 @@
-cabal-version:       >=1.10
+cabal-version:         3.6
 
 name:                  euler-problem-n0005
 version:               0.1.0.0
@@ -24,6 +24,6 @@ executable current
                        combinatorial   >= 0.1.1   && < 1,
                        containers      >= 0.6.2.1 && < 1
 
-  hs-source-dirs:      /home/jeff/git/project-euler/0005-smallest-multiple,
-                       /home/jeff/git/project-euler/0000-library/Haskell
+  hs-source-dirs:      .
+                       ../0000-library/Haskell
   default-language:    Haskell2010
