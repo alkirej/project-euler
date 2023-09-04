@@ -2,8 +2,8 @@
 
 clear
 hlint .
-hlint ~/git/project-euler/0000-library
+hlint ~/git/project-euler/0000-library/Haskell
 
-cd ~/git/project-euler/0021-names-scores
-cabal run -p euler-problem-n0021 $@
+cd ~/git/project-euler/0022-names-scores
+cabal run euler-problem-n0022 names.txt
 

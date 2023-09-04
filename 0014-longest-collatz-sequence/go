@@ -5,5 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/0014-longest-collatz-sequence
-cabal run -p euler-problem-n0014 $@
+cabal run euler-problem-n0014 1000000
 

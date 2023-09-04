@@ -5,5 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/0024-lexicographic-permutations
-cabal run -p euler-problem-n0024 $@
+cabal run euler-problem-n0024 9 1000000
 

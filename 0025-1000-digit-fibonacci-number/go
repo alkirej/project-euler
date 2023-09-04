@@ -5,5 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/0025-1000-digit-fibonacci-number
-cabal run -p euler-problem-n0025 $@
+cabal run euler-problem-n0025 1000
 

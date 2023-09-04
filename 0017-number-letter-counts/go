@@ -5,5 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/0017-number-letter-counts
-cabal run -p euler-problem-n0017 $@
+cabal run euler-problem-n0017 1000
 

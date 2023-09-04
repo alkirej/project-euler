@@ -5,5 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/0037-truncatable-primes
-cabal run -p euler-problem-n0037 $@
+cabal run euler-problem-n0037 1000000
 

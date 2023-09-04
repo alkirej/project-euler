@@ -3,6 +3,7 @@ module ListFns
         binSrchContains,
         containsAll,
         integerToDigitList,
+        lookForRepeatingSegmentInFront,
         numericStringToDigitList,
         numericTextToDigitList,
         readNumbersToLists,

@@ -5,5 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/0020-factorial-digit-sum
-cabal run -p euler-problem-n0020 $@
+cabal run euler-problem-n0020 100
 

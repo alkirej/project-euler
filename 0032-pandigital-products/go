@@ -5,5 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/0032-pandigital-products
-cabal run -p euler-problem-n0032 $@
+cabal run euler-problem-n0032 
 

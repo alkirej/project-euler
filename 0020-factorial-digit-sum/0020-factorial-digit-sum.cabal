@@ -1,4 +1,4 @@
-cabal-version:         >= 2.0 && <= 2.2
+cabal-version:         3.6
 
 name:                  euler-problem-n0020
 version:               0.1.0.0
@@ -6,7 +6,7 @@ synopsis:              Code to solve the Project Euler problem #0020.
 -- description:        
 -- bug-reports:
 homepage:              https://github.com/alkirej/project-euler
-license:               BSD3
+license:               BSD-3-Clause
 author:                Jeff Alkire
 maintainer:            jeff@alkire.net
 -- copyright:
@@ -33,6 +33,6 @@ executable problem-0020
                        split           >= 0.2.3.5 && < 0.3,
                        text            >= 1.2.4   && < 1.3
 
-  hs-source-dirs:      /home/jeff/git/project-euler/0020-factorial-digit-sum
-                       /home/jeff/git/project-euler/0000-library
+  hs-source-dirs:      .
+                       ../0000-library/Haskell
   default-language:    Haskell2010

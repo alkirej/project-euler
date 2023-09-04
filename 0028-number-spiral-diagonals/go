@@ -5,5 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/0028-number-spiral-diagonals
-cabal run -p euler-problem-n0028 $@
+cabal run euler-problem-n0028 1001
 

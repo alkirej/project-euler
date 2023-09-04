@@ -1,5 +1,6 @@
 module Factor
-    (   countFactors,
+    (   allFactors,
+        countFactors,
         factor,
         isAbundantNumber,
         isDeficientNumber,
@@ -24,6 +25,12 @@ countFactors :: Int -> Int
 countFactors n =
     let fs = factor n
     in  length fs
+
+allFactors :: Int -> [Int]
+allFactors n =
+    let pfs = primeFactors n
+        ls  = Comb.partitions pfs
+    in  Lst.nub $ concatMap products ls
 
 factor :: Int -> [Int]
 factor n =

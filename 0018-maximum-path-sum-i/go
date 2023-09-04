@@ -4,6 +4,6 @@ clear
 hlint .
 hlint ~/git/project-euler/0000-library
 
-cd ~/git/project-euler/0018-maximum-path-sum-1
-cabal run -p euler-problem-n0018 $@
+cd ~/git/project-euler/0018-maximum-path-sum-i
+cabal run euler-problem-n0018 triangle.txt
 

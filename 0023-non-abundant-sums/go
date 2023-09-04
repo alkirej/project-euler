@@ -5,5 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/0023-non-abundant-sums
-cabal run -p euler-problem-n0023 $@
+cabal run euler-problem-n0023 
 

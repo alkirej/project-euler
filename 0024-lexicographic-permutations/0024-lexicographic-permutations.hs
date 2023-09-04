@@ -25,7 +25,7 @@ main = do
         ans = perms !! (which-1)
 
     putStr "Entry # "
-    putStr $ show digCnt
+    putStr $ show which
     putStr " in the ordered list of permutations of "
     putStr $ show digits
     putStr " is "

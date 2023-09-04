@@ -2,8 +2,8 @@
 
 clear
 hlint .
-hlint ~/git/project-euler/0000-library
+hlint ~/git/project-euler/0000-library/Haskell
 
 cd ~/git/project-euler/0016-power-digit-sum
-cabal run -p euler-problem-n0016 $@
+cabal run euler-problem-n0016 1000
 

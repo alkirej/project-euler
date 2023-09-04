@@ -25,7 +25,9 @@ executable problem-0011
 
   default-extensions:  NumericUnderscores,
                        OverloadedStrings
-  build-depends:       base            >= 4.13    && < 5  ,
+  build-depends:       base            >= 4.13    && < 5,
+                       combinatorial   >= 0.1.1   && < 1,
+                       containers      >= 0.6.7   && < 1,
                        matrix          >= 0.3.6.1 && < 0.4,
                        split           >= 0.2.3.5 && < 0.3,
                        text            >= 1.2.4   && < 1.3

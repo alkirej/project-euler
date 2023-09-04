@@ -5,5 +5,5 @@ hlint .
 hlint ~/git/project-euler/0000-library
 
 cd ~/git/project-euler/0029-distinct-powers
-cabal run -p euler-problem-n0029 $@
+cabal run euler-problem-n0029 2 100
 
